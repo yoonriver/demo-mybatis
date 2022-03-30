@@ -11,30 +11,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/company")
-public class CompanyController {
-
-	@Autowired
-	private CompanyMapper companyMapper;
+@RequestMapping("/employee")
+public class EmployController {
 	
 	@Autowired
-	private CompanyService companyService;
+	private EmployeeMapper employeeMapper;
 	
 	@PostMapping("")
-	public Company post(@RequestBody Company company) {
-		companyMapper.insert(company);
-		return company;
+	public Employee post(@RequestBody Employee employee) {
+		employeeMapper.insert(employee);
+		return employee;
 	}
 	
 	@GetMapping("")
-	public List<Company> getAll() {
-		return companyMapper.getAll();
+	public List<Employee> getAll() {
+		return employeeMapper.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Company getById(@PathVariable("id") int id) {
-		return companyMapper.getById(id);
+	public Employee getById(@PathVariable("id") int id) {
+		return employeeMapper.getById(id);
 	}
-
-
 }
